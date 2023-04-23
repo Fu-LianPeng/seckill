@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjtu.seckill.mapper.UserMapper">
+
+    <sql id="selectFields">
+        id,phonenum,salt,password,register_date
+    </sql>
+    <sql id="insertFields">
+        id,phonenum,password,register_date
+    </sql>
+    <select id="selectByPhonenum" resultType="User">
+        select  <include refid="selectFields"></include> from user
+        where phonenum = #{phonenum}
+    </select>
+
+</mapper>
